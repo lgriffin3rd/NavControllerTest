@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct ContentView : View {
+    @State private var showNewNav = false
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            ZStack {
+                Text("Testing Navigation")
+                Button(action: {
+                    self.showNewNav.toggle()
+                }) {
+                    Text("Show New VC")
+                }.padding(.top, 100)
+                
+                if showNewNav {
+                    NavWrapper(controller: TestViewController())
+                }
+            }
+        }
     }
 }
 
